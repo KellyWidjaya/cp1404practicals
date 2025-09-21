@@ -1,6 +1,6 @@
 """
 CP1404 - Practical
-Program to print password into stars
+Program to convert password into asterisks
 """
 
 MINIMUM_PASSWORD_LENGTH = 8
