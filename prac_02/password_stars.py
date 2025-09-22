@@ -6,7 +6,7 @@ Program to convert password into asterisks
 MINIMUM_PASSWORD_LENGTH = 8
 
 def main():
-    """Hidden password program."""
+    """Password check program."""
     password = get_password()
     print_asterisk(password)
 
