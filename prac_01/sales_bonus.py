@@ -4,31 +4,29 @@ If sales are under $1,000, the user gets a 10% bonus.
 If sales are $1,000 or over, the bonus is 15%.
 Pseudocode:
 
-BONUS_THRESHOLD = 1000
-LOW_BONUS_RATE = 0.1
-HIGH_BONUS_RATE = 0.15
+SALE_THRESHOLD = 1000
+LOW_DISCOUNT_RATE = 0.1
+HIGH_DISCOUNT_RATE = 0.15
 
 get sales
 while sales >= 0
-    if sales < BONUS_THRESHOLD
-        bonus = sales * LOW_BONUS_RATE
+    if sales < SALE_THRESHOLD
+        discount_rate = LOW_DISCOUNT_RATE
     else
-        bonus = sales * HIGH_BONUS_RATE
-    print bonus
+        discount_rate = HIGH_DISCOUNT_RATE
+    print sales * discount_rate
     get sales
-print thank you message
 """
 
-BONUS_THRESHOLD = 1000
-LOW_BONUS_RATE = 0.1
-HIGH_BONUS_RATE = 0.15
+SALE_THRESHOLD = 1000
+LOW_DISCOUNT_RATE = 0.1
+HIGH_DISCOUNT_RATE = 0.15
 
 sales = float(input("Enter sales: $"))
 while sales >= 0:
-    if sales < BONUS_THRESHOLD:
-        bonus = sales * LOW_BONUS_RATE
+    if sales < SALE_THRESHOLD:
+        discount_rate = LOW_DISCOUNT_RATE
     else:
-        bonus = sales * HIGH_BONUS_RATE
-    print(f"Bonus: ${bonus}")
+        discount_rate = HIGH_DISCOUNT_RATE
+    print("Bonus: $", sales * discount_rate, sep="")
     sales = float(input("Enter sales: $"))
-print("Thank you.")
