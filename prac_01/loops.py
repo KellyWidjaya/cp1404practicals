@@ -19,7 +19,7 @@ for i in range(number_of_stars):
 print()
 
 # d.
-number_of_lines = int(input("Number of lines: "))
-for i in range(1, number_of_lines + 1):
+number_of_stars = int(input("Number of stars: "))
+for i in range(1, number_of_stars + 1):
     print('*' * i)
 print()
