@@ -11,7 +11,7 @@ PASS_THRESHOLD = 50
 
 
 def main():
-    """Program to get score, determine the result and print stars."""
+    """Menu program to get score, determine the result and print stars."""
     score = validate_score()
 
     print(MENU)
