@@ -8,7 +8,7 @@ F - Convert Fahrenheit to Celsius
 Q - Quit"""
 
 def main():
-    """Menu program to convert temperature."""
+    """Menu program to convert temperature units."""
     print(MENU)
     choice = input(">>> ").upper()
 
