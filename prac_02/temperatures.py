@@ -11,6 +11,7 @@ def main():
     """Menu program to convert temperature."""
     print(MENU)
     choice = input(">>> ").upper()
+
     while choice != "Q":
         if choice == "C":
             celsius = float(input("Celsius: "))
@@ -24,6 +25,7 @@ def main():
             print("Invalid option")
         print(MENU)
         choice = input(">>> ").upper()
+
     print("Thank you.")
 
 def convert_to_celcius(fahrenheit):
