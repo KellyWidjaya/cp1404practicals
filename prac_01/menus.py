@@ -1,12 +1,10 @@
 """
 Pseudocode:
 
-MENU = "(H)ello
-(G)oodbye
-(Q)uit"
+MENU = "(H)ello\n(G)oodbye\n(Q)uit"
 
 get name
-print menu
+print MENU
 get choice
 while choice != Q
    if choice == H
@@ -15,18 +13,18 @@ while choice != Q
        print "goodbye" name
    else
        print invalid message
-   print menu
+   print MENU
    get choice
 print finished message
 """
 
-MENU = """(H)ello
-(G)oodbye
-(Q)uit"""
+MENU = "(H)ello\n(G)oodbye\n(Q)uit"
 
 name = input("Enter name: ")
+
 print(MENU)
 choice = input(">>> ").upper()
+
 while choice != "Q":
     if choice == "H":
         print(f"Hello {name}")
