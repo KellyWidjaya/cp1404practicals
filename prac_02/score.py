@@ -11,6 +11,7 @@ EXCELLENT_THRESHOLD = 90
 PASS_THRESHOLD = 50
 
 def main():
+    """Program to determine score result."""
     score = float(input("Enter score: "))
     score_result = determine_result(score)
     random_score = random.randint(MINIMUM_SCORE, MAXIMUM_SCORE)
@@ -20,6 +21,7 @@ def main():
     print(random_result)
 
 def determine_result(score):
+    """Return result based on score."""
     if score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         return "Invalid score"
     elif score >= EXCELLENT_THRESHOLD:
