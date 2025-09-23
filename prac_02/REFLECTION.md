@@ -17,7 +17,7 @@ I check my code carefully to make sure naming conventions are correct, and I sub
 
 ## What do you need to stop or change in your work for this subject overall so far?
 
-I need to watch lecture videos more consistently and stop skipping parts while doing the practical task, I should read everything carefully before starting the code.
+I need to watch lecture videos more consistently and stop skipping parts while reading the practical task, I should read everything carefully before starting the code.
 
 ## What are you currently doing poorly for practicals in this subject that you will change?
 
