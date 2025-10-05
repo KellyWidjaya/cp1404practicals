@@ -17,3 +17,11 @@ with open("numbers.txt", "r") as in_file:
 
 result = first_number + second_number
 print(f"Result: {result}")
+
+# 4.
+with open("numbers.txt", "r") as in_file:
+    total = 0
+    for line in in_file:
+        number = int(line)
+        total += number
+print(f"Total: {total}")
