@@ -17,4 +17,4 @@ for i in range(number_of_picks):
     for j in range(NUMBERS_PER_LINE):
         number = random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER)
         numbers.append(number)
-    print(" ".join(f"{number}" for number in numbers))
+    print(" ".join(f"{number:{number_width}}" for number in numbers))
