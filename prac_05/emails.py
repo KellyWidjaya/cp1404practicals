@@ -16,5 +16,7 @@ while email != "":
         email_to_name[email] = input("Name: ").title()
     email = input("Email: ")
 
+print()
+
 for email, name in email_to_name.items():
     print(f"{name} ({email})")
