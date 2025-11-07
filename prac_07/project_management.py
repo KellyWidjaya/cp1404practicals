@@ -1,7 +1,7 @@
 """
 CP1404/CP5632 Practical - Client code to use the Project class.
 Estimate: 50 minutes
-Actual:   1 hour 30 minutes
+Actual:   1 hour 50 minutes
 """
 
 from prac_07.project import Project
@@ -30,7 +30,8 @@ def main():
             filename = input("Filename: ")
             projects = load_projects(filename)
         elif choice == "s":
-            print("save projects")
+            filename = input("Filename: ")
+            save_projects(filename, projects)
         elif choice == "d":
             display_projects(projects)
         elif choice == "f":
@@ -44,6 +45,10 @@ def main():
 
         print(MENU)
         choice = input(">>> ").lower()
+    save_choice = input(f"Would you like to save to {DEFAULT_FILENAME}? ")
+    if save_choice == "y":
+        save_projects(DEFAULT_FILENAME, projects)
+
     print("Thank you for using custom-built project management software.")
 
 def load_projects(filename):
@@ -114,5 +119,13 @@ def filter_projects(projects):
     filtered_project.sort(key=attrgetter("date"))
     for project in filtered_project:
         print(project)
+
+def save_projects(filename, projects):
+    """Write the list of Project objects to a file."""
+    with open(filename, "w") as out_file:
+        print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
+        for project in projects:
+            print(f"{project.name}\t{project.date.strftime("%d/%m/%Y")}\t{project.priority}\t{project.cost}\t{project.completion}", file=out_file)
+    print(f"Projects saved to {filename}")
 
 main()
