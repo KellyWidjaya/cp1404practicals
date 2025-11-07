@@ -82,10 +82,12 @@ def update_project(projects):
     project = projects[index]
     print(project)
 
-    new_completion = int(input("New Percentage: "))
-    project.completion = new_completion
+    new_completion = input("New Percentage: ")
+    if new_completion != "":
+        project.completion = int(new_completion)
 
-    new_priority = int(input("New Priority: "))
-    project.priority = new_priority
+    new_priority = input("New Priority: ")
+    if new_priority != "":
+        project.priority = int(new_priority)
 
 main()
