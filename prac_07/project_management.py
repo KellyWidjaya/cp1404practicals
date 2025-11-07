@@ -3,6 +3,7 @@ CP1404/CP5632 Practical - Client code to use the Project class.
 Estimate: 50 minutes
 Actual:   40 minutes
 """
+
 from prac_07.project import Project
 import datetime
 
@@ -36,7 +37,7 @@ def main():
         elif choice == "a":
             print("add new project")
         elif choice == "u":
-            print("update project")
+            update_project(projects)
         else:
             print("invalid choice")
 
@@ -64,10 +65,27 @@ def display_projects(projects):
     print("Incomplete projects:")
     for project in sorted(projects):
         if not project.is_complete():
-            print(project)
+            print(f"  {project}")
+
     print("Completed projects:")
     for project in sorted(projects):
         if project.is_complete():
-            print(project)
+            print(f"  {project}")
+
+
+def update_project(projects):
+    """Change the priority and/or completion percentage of project."""
+    for i, project in enumerate(projects):
+        print(i, project)
+
+    index = int(input("Project choice: "))
+    project = projects[index]
+    print(project)
+
+    new_completion = int(input("New Percentage: "))
+    project.completion = new_completion
+
+    new_priority = int(input("New Priority: "))
+    project.priority = new_priority
 
 main()
