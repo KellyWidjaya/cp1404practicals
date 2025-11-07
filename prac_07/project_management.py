@@ -1,9 +1,12 @@
 """
 CP1404/CP5632 Practical - Client code to use the Project class.
 Estimate: 50 minutes
-Actual:   minutes
+Actual:   40 minutes
 """
+from prac_07.project import Project
+import datetime
 
+DEFAULT_FILENAME = "projects.txt"
 MENU = """- (L)oad projects  
 - (S)ave projects  
 - (D)isplay projects  
@@ -15,15 +18,19 @@ MENU = """- (L)oad projects
 def main():
     """Project management menu program."""
     print("Welcome to Pythonic Project Management")
+    filename = DEFAULT_FILENAME
+    projects = load_projects(filename)
     print(MENU)
+
     choice = input(">>> ").lower()
     while choice != "q":
         if choice == "l":
-            print("load projects")
+            filename = input("Filename: ")
+            projects = load_projects(filename)
         elif choice == "s":
             print("save projects")
         elif choice == "d":
-            print("display projects")
+            display_projects(projects)
         elif choice == "f":
             print("filter projects by date")
         elif choice == "a":
@@ -36,5 +43,31 @@ def main():
         print(MENU)
         choice = input(">>> ").lower()
     print("Thank you for using custom-built project management software.")
+
+def load_projects(filename):
+    """Load projects from a file."""
+    projects = []
+    with open(filename, "r") as in_file:
+        in_file.readline()
+        for line in in_file:
+            name, date_string, priority, cost, completion = line.split("\t")
+            date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+            project = Project(name, date, int(priority), float(cost), int(completion))
+            projects.append(project)
+
+    print(f"Loaded {len(projects)} projects from {filename}")
+
+    return projects
+
+def display_projects(projects):
+    """Print project details."""
+    print("Incomplete projects:")
+    for project in sorted(projects):
+        if not project.is_complete():
+            print(project)
+    print("Completed projects:")
+    for project in sorted(projects):
+        if project.is_complete():
+            print(project)
 
 main()
