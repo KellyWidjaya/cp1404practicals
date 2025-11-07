@@ -1,10 +1,11 @@
 """
 CP1404/CP5632 Practical - Client code to use the Project class.
 Estimate: 50 minutes
-Actual:   55 minutes
+Actual:   1 hour 30 minutes
 """
 
 from prac_07.project import Project
+from operator import attrgetter
 import datetime
 
 DEFAULT_FILENAME = "projects.txt"
@@ -33,7 +34,7 @@ def main():
         elif choice == "d":
             display_projects(projects)
         elif choice == "f":
-            print("filter projects by date")
+            filter_projects(projects)
         elif choice == "a":
             add_project(projects)
         elif choice == "u":
@@ -103,5 +104,15 @@ def add_project(projects):
 
     new_project = Project(name, date, priority, cost, completion)
     projects.append(new_project)
+
+def filter_projects(projects):
+    """Get date and display projects starting after that date."""
+    date_threshold_string = input("Show projects that start after date (dd/mm/yyyy): ")
+    date_threshold = datetime.datetime.strptime(date_threshold_string, "%d/%m/%Y").date()
+
+    filtered_project = [project for project in projects if project.date >= date_threshold]
+    filtered_project.sort(key=attrgetter("date"))
+    for project in filtered_project:
+        print(project)
 
 main()
