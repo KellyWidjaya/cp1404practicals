@@ -1,7 +1,7 @@
 """
 CP1404/CP5632 Practical - Client code to use the Project class.
 Estimate: 50 minutes
-Actual:   40 minutes
+Actual:   55 minutes
 """
 
 from prac_07.project import Project
@@ -35,7 +35,7 @@ def main():
         elif choice == "f":
             print("filter projects by date")
         elif choice == "a":
-            print("add new project")
+            add_project(projects)
         elif choice == "u":
             update_project(projects)
         else:
@@ -89,5 +89,19 @@ def update_project(projects):
     new_priority = input("New Priority: ")
     if new_priority != "":
         project.priority = int(new_priority)
+
+def add_project(projects):
+    """Get details for a new project and add it to the list."""
+    print("Let's add a new project")
+
+    name = input("Name: ")
+    date_string = input("Start date (dd/mm/yyyy): ")
+    date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    priority = int(input("Priority: "))
+    cost = float(input("Cost estimate: $"))
+    completion = int(input("Percent complete: "))
+
+    new_project = Project(name, date, priority, cost, completion)
+    projects.append(new_project)
 
 main()
