@@ -23,7 +23,7 @@ class ConvertMilesKm(App):
 
     def handle_calculate(self):
         """ Handle calculation, output result to label widget """
-        value = float(self.root.ids.input_miles.text)
+        value = self.get_validated_miles()
         result = value * MILES_TO_KM
         self.output_label = str(result)
 
@@ -31,8 +31,19 @@ class ConvertMilesKm(App):
         """
         Handle up/down button, update the text input with new value, call calculation function
         """
-        value = float(self.root.ids.input_miles.text) + change
+        value = self.get_validated_miles() + change
         self.root.ids.input_miles.text = str(value)
         self.handle_calculate()
+
+    def get_validated_miles(self):
+        """
+        get text input, convert to float
+        return 0 if error, float version of text if valid
+        """
+        try:
+            value = float(self.root.ids.input_miles.text)
+            return value
+        except ValueError:
+            return 0
 
 ConvertMilesKm().run()
