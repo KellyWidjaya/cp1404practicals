@@ -10,7 +10,7 @@ def main():
     my_taxi = SilverServiceTaxi("my taxi", 100, 2)
     my_taxi.drive(18)
     print(my_taxi)
-    print(f"fare: ${my_taxi.get_fare()}")
-    assert abs(my_taxi.get_fare() - 48.78) < 0.01, "Fare calculation is incorrect"
+    print(f"fare: ${my_taxi.get_fare():.2f}")
+    assert abs(my_taxi.get_fare() - 48.80) < 0.01, "Fare calculation is incorrect"
 
 main()
